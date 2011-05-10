@@ -4,7 +4,7 @@ describe "StaticMatic::Template" do
   before do
     setup_staticmatic
     
-    template_file = File.join(TEST_SITE_PATH, "src", "pages", "page_with_error.haml")
+    template_file = File.join(TEST_SITE_PATH, "src", "page_with_error.haml")
     
     begin
       @staticmatic.generate_html_from_template_source(File.read(template_file))

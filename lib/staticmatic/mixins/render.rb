@@ -142,8 +142,8 @@ module StaticMatic::RenderMixin
     layout_name 
   end
     
-  # Returns a raw template name from a source file path:
-  # source_template_from_path("/path/to/site/src/stylesheets/application.sass")  ->  "application"
+  # Returns a dir and raw template name from a source file path:
+  # source_template_from_path("/path/to/site/src/stylesheets/application.sass")  -> [ "/path/to/site/src/stylesheets", "application" ]
   def source_template_from_path(path)
     file_dir, file_name = File.split(path)
     file_name.chomp!(File.extname(file_name))

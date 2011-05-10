@@ -11,7 +11,7 @@ describe "StaticMatic::Rescue" do
   end
   
   it "catch sass template errors" do
-    output = @staticmatic.generate_css("css_with_error")
+    output = @staticmatic.generate_css("stylesheets/css_with_error")
     output.should match(/StaticMatic::TemplateError/)
   end
   

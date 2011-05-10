@@ -17,7 +17,7 @@ describe "StaticMatic::Render" do
   end
   
   it "generate css" do
-    content = @staticmatic.generate_css("application")
+    content = @staticmatic.generate_css("stylesheets/application")
   end
   
   it "find source filename from path" do
@@ -30,7 +30,7 @@ describe "StaticMatic::Render" do
   
   context "handling scss" do
     it "should generate css from scss" do
-      @staticmatic.generate_css("sassy").should match(/color\: \#3bbfce\;/)
+      @staticmatic.generate_css("stylesheets/sassy").should match(/color\: \#3bbfce\;/)
     end
   end
   
