@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 require 'rubygems'
+require 'pathname'
 require 'thor'
 
-lib_dir = File.dirname(__FILE__) + '/../lib/staticmatic'
+lib_dir = Pathname.new(__FILE__).realpath.dirname.join('../lib/staticmatic')
 
 require lib_dir
 Dir[File.join lib_dir,'deployers','*.rb'].each do |deployer|
