@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + "/spec_helper"
+require "spec_helper"
 
 describe "StaticMatic::Rescue" do
   before do
