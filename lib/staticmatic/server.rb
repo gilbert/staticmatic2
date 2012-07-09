@@ -59,8 +59,28 @@ module StaticMatic
         use Rack::ShowExceptions
         run StaticMatic::Server.new(staticmatic)
       end 
+
+      ssl_enable = staticmatic.configuration.ssl_enable || false
+
+      if not ssl_enable
+        staticmatic.configuration.preview_server.run(app, :Port => port, :Host => host)
+      else
+        ssl_verify_client = OpenSSL::SSL::VERIFY_NONE
+        ssl_private_key = OpenSSL::PKey::RSA.new(File.open(staticmatic.configuration.ssl_private_key_path).read)
+        ssl_certificate = OpenSSL::X509::Certificate.new(File.open(staticmatic.configuration.ssl_certificate_path).read)
+        ssl_cert_name = [["CN", WEBrick::Utils::getservername]]
+        staticmatic.configuration.preview_server.run(
+          app, 
+          :Port => port, 
+          :Host => host,
+          :SSLEnable => true,
+          :SSLPrivateKey => ssl_private_key,
+          :SSLCertificate => ssl_certificate,
+          :SSLCertName => ssl_cert_name
+        )
+
+      end
       
-      staticmatic.configuration.preview_server.run(app, :Port => port, :Host => host)
     end
 
   end

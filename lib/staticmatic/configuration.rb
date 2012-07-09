@@ -3,6 +3,9 @@ module StaticMatic
     attr_accessor :preview_server
     attr_accessor :preview_server_host
     attr_accessor :preview_server_port
+    attr_accessor :ssl_enable
+    attr_accessor :ssl_private_key_path
+    attr_accessor :ssl_certificate_path
     
     attr_accessor :use_extensions_for_page_links
     attr_accessor :default_template_engine

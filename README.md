@@ -134,6 +134,15 @@ Force the browser to ignore its cache whenever you damn well feel like it:
 
     <script language="javascript" src="js/app.js?_=2.0.6" type="text/javascript"></script>
 
+## SSL support
+
+To enable SSL support, add the following lines to configuration/site.rb file:
+    
+    require 'webrick/https'
+    configuration.ssl_enable = true
+    configuration.ssl_private_key_path = "/path/to/key.pem"
+    configuration.ssl_certificate_path = "/path/to/cert.pem"
+
 # Roadmap / TODO list
 
 - Fix slowness of executable (built on [Thor](https://github.com/wycats/thor); maybe reconsider?)
