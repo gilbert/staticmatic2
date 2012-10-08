@@ -17,7 +17,6 @@ module StaticMatic::BuildMixin
   def copy_file_from_src_to_site(src_path)
     site_path = src_path.gsub /^#{@src_dir}/, @site_dir
 
-    FileUtils.rm_rf(File.dirname site_path) if File.exists? File.dirname(site_path)
     FileUtils.mkdir_p(File.dirname site_path)
     FileUtils.cp_r src_path, site_path
   end
