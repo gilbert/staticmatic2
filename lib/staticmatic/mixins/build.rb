@@ -18,7 +18,7 @@ module StaticMatic::BuildMixin
     site_path = src_path.gsub /^#{@src_dir}/, @site_dir
 
     FileUtils.mkdir_p(File.dirname site_path)
-    FileUtils.cp src_path, site_path
+    FileUtils.cp_r src_path, site_path
   end
 
   def generate_site_file(src_path)
