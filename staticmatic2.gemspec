@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "staticmatic2"
-  s.version = "2.1.6"
+  s.version = "2.1.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Stephen Bartholomew", "Gilbert B Garza"]
-  s.date = "2012-11-01"
+  s.date = "2013-10-20"
   s.description = "    StaticMatic helps you quickly create maintainable Amazon S3 static websites using\n    tools such as Haml and Sass.\n    \n    Quickly deploy to services such as Amazon S3 in a single command.\n"
   s.email = "gilbertbgarza@gmail.com"
   s.executables = ["staticmatic"]
@@ -119,7 +119,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "staticmatic2"
-  s.rubygems_version = "1.8.11"
+  s.rubygems_version = "1.8.25"
   s.summary = "Build Amazon S3 static websites using modern dynamic tools"
 
   if s.respond_to? :specification_version then
