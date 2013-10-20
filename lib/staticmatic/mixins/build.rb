@@ -1,5 +1,5 @@
 module StaticMatic::BuildMixin
-    
+
   def build
     src_file_paths('*').each do |src_path|
       ext = File.extname(src_path).sub(/^\./, '')

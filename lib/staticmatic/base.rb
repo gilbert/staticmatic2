@@ -1,13 +1,13 @@
-module StaticMatic  
+module StaticMatic
   class Base
-    
+
     include StaticMatic::RenderMixin
     include StaticMatic::BuildMixin
     include StaticMatic::SetupMixin
-    include StaticMatic::HelpersMixin    
-    include StaticMatic::ServerMixin    
-    include StaticMatic::RescueMixin    
-  
+    include StaticMatic::HelpersMixin
+    include StaticMatic::ServerMixin
+    include StaticMatic::RescueMixin
+
     attr_accessor :configuration, :mode
     attr_reader :src_dir, :site_dir
 
@@ -33,10 +33,6 @@ module StaticMatic
       @current_file_stack = []
       @mode = mode
 
-      @base_dir = base_dir
-      @src_dir = File.join(@base_dir, "src")
-      @site_dir = File.join(@base_dir, "build")
-
       @default_layout_name = "default"
 
       @scope = Object.new
@@ -44,17 +40,21 @@ module StaticMatic
       @scope.instance_eval do
         extend StaticMatic::Helpers
       end
-      
-      load_configuration      
-      configure_compass
 
+      load_configuration
+
+      @base_dir = base_dir
+      @src_dir = File.join(@base_dir, @configuration.site_dir)
+      @site_dir = File.join(@base_dir, @configuration.build_dir)
+
+      configure_compass
       load_helpers
     end
 
     def load_configuration
       configuration = StaticMatic::Configuration.new
       config_file = File.join(@base_dir, "config", "site.rb")
-      
+
       if File.exists?(config_file)
         config = File.read(config_file)
         eval(config)
@@ -69,7 +69,7 @@ module StaticMatic
 
     def run(command)
       puts "Site root is: #{@base_dir}"
-      
+
       if %w(build setup preview).include?(command)
         send(command)
       else
@@ -120,10 +120,10 @@ module StaticMatic
     end
 
     def configure_compass
-      Compass.configuration.project_path = @base_dir 
+      Compass.configuration.project_path = @base_dir
 
       compass_config_path = File.join(@base_dir, "config", "compass.rb")
-      
+
       if File.exists?(compass_config_path)
         Compass.add_configuration(compass_config_path)
       end
