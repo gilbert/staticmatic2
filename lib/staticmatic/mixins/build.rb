@@ -3,12 +3,7 @@ module StaticMatic::BuildMixin
   def build
     src_file_paths('*').each do |src_path|
       ext = File.extname(src_path).sub(/^\./, '')
-
-      if Tilt.mappings[ext].length > 0 and not File.directory? src_path
-        generate_site_file(src_path)
-      else
-        copy_file_from_src_to_site(src_path)
-      end
+      copy_file_from_src_to_site(src_path)
     end
   end
 
