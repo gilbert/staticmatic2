@@ -128,7 +128,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<haml>, ["~> 3.1"])
       s.add_runtime_dependency(%q<sass>, ["~> 3.1"])
-      s.add_runtime_dependency(%q<tilt>, [">= 1.3"])
+      s.add_runtime_dependency(%q<tilt>, ["~> 1.3"])
       s.add_runtime_dependency(%q<compass>, ["~> 0.12.1"])
       s.add_runtime_dependency(%q<rack>, [">= 1.0"])
       s.add_runtime_dependency(%q<thor>, [">= 0.14.6"])
@@ -139,7 +139,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<haml>, ["~> 3.1"])
       s.add_dependency(%q<sass>, ["~> 3.1"])
-      s.add_dependency(%q<tilt>, [">= 1.3"])
+      s.add_dependency(%q<tilt>, ["~> 1.3"])
       s.add_dependency(%q<compass>, ["~> 0.12.1"])
       s.add_dependency(%q<rack>, [">= 1.0"])
       s.add_dependency(%q<thor>, [">= 0.14.6"])
@@ -151,7 +151,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<haml>, ["~> 3.1"])
     s.add_dependency(%q<sass>, ["~> 3.1"])
-    s.add_dependency(%q<tilt>, [">= 1.3"])
+    s.add_dependency(%q<tilt>, ["~> 1.3"])
     s.add_dependency(%q<compass>, ["~> 0.12.1"])
     s.add_dependency(%q<rack>, [">= 1.0"])
     s.add_dependency(%q<thor>, [">= 0.14.6"])
